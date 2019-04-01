@@ -1,0 +1,13 @@
+@mixin v-fonts($family, $file-name, $style, $format) {
+  @font-face {
+    font-family: $family;
+    src: url('fonts/#{$file-name}') format('#{$format}');
+    font-style: $style;
+  }
+}
+
+@include v-fonts(Quattro VF, "iAWriterQuattroV.ttf", normal, truetype);
+@include v-fonts(Quattro VF, "iAWriterQuattroV-italic.ttf", italic, truetype);
+
+@include v-fonts(Mono VF, "iAWriterMonoV.ttf", normal, truetype);
+@include v-fonts(Mono VF, "iAWriterMonoV-italic.ttf", italic, truetype);

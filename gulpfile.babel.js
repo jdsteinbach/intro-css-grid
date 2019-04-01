@@ -1,11 +1,12 @@
 import { dest, series, src, task, watch } from 'gulp'
 import yargs from 'yargs'
 import del from 'del'
-import fs from 'fs'
+import { readdirSync, readFileSync, statSync } from 'fs'
 import glob from 'glob'
 import { join, basename, extname } from 'path'
 import webpack from 'webpack-stream'
 import gulpif from 'gulp-if'
+import imagemin from 'gulp-imagemin'
 import standard from 'gulp-standard'
 import notify from 'gulp-notify'
 import plumber from 'gulp-plumber'
@@ -20,6 +21,10 @@ import sorter from 'css-declaration-sorter'
 
 let browserSync = require('browser-sync').create()
 let { reload } = browserSync
+let md = require('markdown-it')({
+  html: true,
+  typographer: true
+})
 
 let { title } = require('./package.json')
 let { exec } = require('child_process')
@@ -32,10 +37,9 @@ const PROD = !(yargs.argv.dev)
 /**
  * Set up file paths
  */
-const _assetsDir = './assets'
-const _srcDir = `${_assetsDir}/src`
-const _distDir = `${_assetsDir}/dist`
-const _devDir = `${_assetsDir}/dev`
+const _srcDir = `./src`
+const _distDir = `./dist`
+const _devDir = `./dev`
 const _buildDir = PROD ? _distDir : _devDir
 
 /**
@@ -186,23 +190,49 @@ task('styles', () => {
     )
 })
 
-const sectionizeFile = file => `<section>${fs.readFileSync(file)}</section>`
+const jsonToAttrs = json => {
+  let attrs = []
+  for (let k in json) {
+    attrs.push(`${k}="${json[k]}"`)
+  }
+  return attrs.join(' ')
+}
+
+const sectionize = (fileContents, isJson) => {
+  if (isJson) {
+    let contents = JSON.parse(fileContents)
+    const { content, ...data } = contents
+    return `<section ${jsonToAttrs(data)}>${content || ''}</section>`
+  } else {
+    return `<section>${fileContents}</section>`
+  }
+}
 
 const filename = file => basename(file, extname(file))
 
+const fileContents = file => {
+  const ext = extname(file)
+  let contents = readFileSync(file).toString()
+
+  if (ext === '.md') {
+    contents = md.render(contents)
+  }
+  return contents
+}
+
 const dirToContent = dir => {
   let content = ''
-  let contents = fs.readdirSync(dir).sort((a, b) => {
+  let contents = readdirSync(dir).sort((a, b) => {
     return parseInt(filename(a)) < parseInt(filename(b)) ? -1 : 1
   })
 
   for (let x of contents) {
     x = join(dir, x)
 
-    if (fs.statSync(x).isFile()) {
-      content += sectionizeFile(x)
-    } else if (fs.statSync(x).isDirectory()) {
-      content += dirToContent(x)
+    if (statSync(x).isFile()) {
+      content += sectionize(fileContents(x), extname(x) === '.json')
+    } else if (statSync(x).isDirectory()) {
+      content += sectionize(dirToContent(x))
     }
   }
 
@@ -212,16 +242,36 @@ const dirToContent = dir => {
 /**
  * Compiles slide files to index.html
  */
-task('content', () => src('./index.html')
-  .pipe(replace(/{{slides}}/, dirToContent(`${_srcDir}/content/`)))
-  .pipe(replace(/{{title}}/, title))
-  .pipe(dest(_buildDir))
+task('content', () => {
+  let content = dirToContent(`${_srcDir}/content/`)
+
+  return src('./index.html')
+    .pipe(replace(/{{slides}}/, content))
+    .pipe(replace(/{{title}}/, title))
+    .pipe(replace(/<li>/gi, '<li class="fragment">'))
+    .pipe(dest(_buildDir))
+    .pipe(reload({ stream: true }))
+})
+
+/**
+ * Copies font files to build dir
+ */
+task('fonts', () => src(`${_srcDir}/fonts/**/*`)
+  .pipe(dest(`${_buildDir}/fonts`))
+)
+
+/**
+ * Copies image files to build dir
+ */
+task('images', () => src(`${_srcDir}/images/**/*`)
+  .pipe(imagemin())
+  .pipe(dest(`${_buildDir}/images`))
 )
 
 /**
  * Builds for distribution (staging or production)
  */
-task('build', series('clean', 'content', 'styles', 'scripts', cb => cb()))
+task('build', series('clean', 'fonts', 'images', 'content', 'styles', 'scripts', cb => cb()))
 
 /**
  * Builds assets and reloads the page when any php, html, img or dev files change
@@ -236,8 +286,8 @@ task('watch', series('build', () => {
 
   watch(`${_srcDir}/scss/**/*`, series('styles'))
   watch(`${_srcDir}/js/**/*`, series('scripts'))
-  watch(`${_srcDir}/content/**/*.{html,md}`, series('content')).on('change', reload)
-  watch('./index.html,md').on('change', reload)
+  watch(`${_srcDir}/content/**/*.{html,md,json}`, series('content'))
+  watch('./index.html').on('change', reload)
 }))
 
 /**

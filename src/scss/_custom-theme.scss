@@ -1,0 +1,392 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "css/theme/template/mixins";
+@import "css/theme/template/settings";
+// ---------------------------------------------
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #2c313e;
+$shadowColor: #60569c;
+$shadowColorAlt: #5c6443;
+
+$mainColor: #ebecf0;
+$headingColor: #ebecf0;
+
+$mainFontSize: 38px;
+$mainFont: Quattro VF, Helvetica, sans-serif;
+$codeFont: Mono VF, Operator Mono, Input Code, Source Code Pro, monospace;
+$headingFont: $mainFont;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 700;
+$linkColor: lighten($shadowColor, 40%);
+$linkColorHover: lighten($linkColor, 10%);
+$selectionBackgroundColor: lighten($linkColor, 20%);
+
+$heading1Size: 2em;
+$heading2Size: 1.75em;
+$heading3Size: 1.25em;
+$heading4Size: 1em;
+
+$blockMargin: $mainFontSize / 1.25;
+$headingMargin: 0 0 $blockMargin;
+
+$accentColor: mix(#dac935, $mainColor, 15%);
+$codeColor: mix($shadowColorAlt, $mainColor, 33%);
+
+section.has-light-background {
+  &,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $backgroundColor;
+  }
+}
+
+body {
+  font-family: $mainFont !important;
+}
+
+.reveal section {
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  font-feature-settings: liga frac ordn;
+
+  h1 {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  h2 {
+    margin: 0;
+    color: $accentColor;
+    text-shadow: 1px 1px 0 $shadowColorAlt,
+                 2px 2px 0 $shadowColorAlt,
+                 3px 3px 0 $shadowColorAlt,
+                 4px 4px 0 $shadowColorAlt;
+
+    em {
+      color: $mainColor;
+      text-shadow: 1px 1px 0 $shadowColor,
+                   2px 2px 0 $shadowColor,
+                   3px 3px 0 $shadowColor,
+                   4px 4px 0 $shadowColor;
+      font-style: normal;
+      font-weight: inherit;
+    }
+
+    &.big {
+      font-size: $heading1Size;
+    }
+  }
+
+  h1,
+  .h1,
+  h3,
+  .h3 {
+    text-shadow: 1px 1px 0 $shadowColor,
+                 2px 2px 0 $shadowColor,
+                 3px 3px 0 $shadowColor,
+                 4px 4px 0 $shadowColor;
+
+    em {
+      font-style: normal;
+      font-weight: bold;
+      color: $accentColor;
+      text-shadow: 1px 1px 0 $shadowColorAlt,
+                   2px 2px 0 $shadowColorAlt,
+                   3px 3px 0 $shadowColorAlt,
+                   4px 4px 0 $shadowColorAlt;
+    }
+  }
+
+  h3 {
+    &.big {
+      font-size: $heading2Size;
+    }
+  }
+
+  h1, h2, h3,
+  .h1, .h2, .h3 {
+    letter-spacing: 0.03125em;
+  }
+
+  h4 {
+    font-size: $heading3Size;
+  }
+
+  p,
+  li {
+    max-width: 18em;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 .25em black;
+    text-align: left;
+
+    em {
+      font-weight: bold;
+      font-style: normal;
+      color: $accentColor;
+    }
+  }
+
+  .big-p {
+    font-size: $heading1Size;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .output {
+    background-color: rgba($mainColor, .1);
+    text-align: left;
+    font-size: .8em;
+
+    > * {
+      background-color: $shadowColor;
+    }
+  }
+
+  pre {
+    font-size: 1em;
+
+    &.small {
+      font-size: .825em;
+    }
+
+    &.tiny {
+      font-size: .7em;
+    }
+
+    code {
+      max-height: 100%;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  table {
+    th {
+      vertical-align: bottom;
+    }
+    th,
+    td {
+      text-align: center;
+    }
+  }
+
+  .striped {
+    padding: .125em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: repeating-linear-gradient(
+      45deg,
+      mix($backgroundColor, $shadowColor, 61.8%) 0,
+      mix($backgroundColor, $shadowColor, 61.8%) 10px,
+      $backgroundColor 10px,
+      $backgroundColor 20px
+      );
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .hidden-label {
+    display: none;
+  }
+
+  .invisible-hr {
+    border: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  .d-block {
+    display: block;
+  }
+
+  .mb-1 {
+    margin-bottom: 1rem;
+  }
+
+  .grid-properties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: .8em;
+
+    p {
+      margin: .5rem 1rem;
+    }
+
+    hr {
+      flex: 1 0 100%;
+    }
+
+    &.grid-properties--small {
+      font-size: .5em;
+    }
+  }
+
+  a.pen {
+    height: 2.618rem;
+    width: 2.618rem;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+    border-radius: 1rem;
+    background-color: $linkColor;
+    background-image: url("/images/codepen.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1.618rem;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $linkColorHover;
+    }
+  }
+
+  .step {
+    height: 0;
+    width: 0;
+    float: left;
+  }
+
+  .timeline {
+    margin: 0 auto;
+    padding: 0;
+    width: 16em;
+    display: grid;
+    grid-template-columns: repeat(7, 16em);
+    grid-template-rows: 9em;
+    column-gap: calc(50vw - #{16em / 2});
+  }
+
+  .timeline__entry {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: transform .5s ease-out, opacity .25s;
+    box-shadow: inset 0 0 1em black;
+  }
+
+  @for $i from 0 through 10 {
+    .step[data-fragment-index="#{$i}"].current-fragment ~ .timeline .timeline__entry {
+      transform: translateX(calc((-100% - 50vw + #{16em / 2}) * #{$i}));
+    }
+    .step[data-fragment-index="#{$i}"].current-fragment ~ .timeline .timeline__entry:nth-child(#{$i + 1}) {
+      opacity: 1;
+    }
+  }
+
+  .v-tilt {
+    transform: translate(0, var(--translateY, 25%)) rotate(-12.5deg) scale(var(--scale, 1));
+    transform-origin: center;
+  }
+
+  .v-tilt--large {
+    --scale: 1.75;
+    --translateY: 66%;
+  }
+
+  .a-blast-in {
+    position: relative;
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+    transition: transform .5s cubic-bezier(1,.5,.25,2), opacity .3s linear !important;
+
+    &.visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .a-blast-in--big {
+    &.visible {
+      transform: translate(0, -.025em) scale(2);
+      z-index: 2;
+    }
+  }
+}
+
+#colophon {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  opacity: .5;
+  font-style: italic;
+  font-size: 26px;
+  letter-spacing: .0625em;
+  z-index: 1;
+}
+
+code {
+  font-family: $codeFont !important;
+  color: $codeColor;
+
+  :not(pre) > & {
+    &::before,
+    &::after {
+      content: '`';
+    }
+  }
+
+  h1 &,
+  h2 &,
+  h3 & {
+    color: inherit;
+  }
+}
+
+[contenteditable] {
+  &:focus {
+    outline: none;
+  }
+}
+
+style[contenteditable] {
+  display: block;
+  font-family: $codeFont !important;
+  font-size: .7em;
+  white-space: pre;
+  text-align: left;
+  border: 2px solid $linkColor;
+  padding: 1ch;
+  margin: 1em auto;
+  color: $accentColor;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $linkColor;
+  }
+}
+
+
+// Theme template ------------------------------
+@import "css/theme/template/theme";
+
+// ---------------------------------------------

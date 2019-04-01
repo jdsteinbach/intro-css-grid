@@ -1,7 +1,9 @@
 // Style your site here
 
+@import 'fonts';
 @import 'css/reveal.scss';
-@import 'css/theme/source/night.scss';
+@import 'custom-theme';
+@import 'code-highlighting';
 
 *,
 ::before,

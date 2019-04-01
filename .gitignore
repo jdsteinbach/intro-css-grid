@@ -1,8 +1,8 @@
 node_modules
 bower_components
 
-/assets/dev/
-/assets/dist/
+/dev/
+/dist/
 # Logs
 logs
 *.log
