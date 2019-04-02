@@ -11,12 +11,13 @@
 // ---------------------------------------------
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: #2c313e;
-$shadowColor: #60569c;
-$shadowColorAlt: #5c6443;
+$backgroundColor: #131313;
+$backgroundColorAlt: #323232;
+$shadowColor: #2c3e50;
+$shadowColorAlt: #e65100;
 
-$mainColor: #ebecf0;
-$headingColor: #ebecf0;
+$mainColor: #ececec;
+$headingColor: #ff8847;
 
 $mainFontSize: 38px;
 $mainFont: Quattro VF, Helvetica, sans-serif;
@@ -38,8 +39,8 @@ $heading4Size: 1em;
 $blockMargin: $mainFontSize / 1.25;
 $headingMargin: 0 0 $blockMargin;
 
-$accentColor: mix(#dac935, $mainColor, 15%);
-$codeColor: mix($shadowColorAlt, $mainColor, 33%);
+$accentColor: mix($headingColor, $mainColor, 45%);
+$codeColor: mix($shadowColor, $mainColor, 45%);
 
 section.has-light-background {
   &,
@@ -59,31 +60,34 @@ body {
 
 .reveal section {
   font-weight: 400;
+  font-variation-settings: "wght" $fontWeightNormal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
   font-feature-settings: liga frac ordn;
 
   h1 {
     margin: 0;
-    font-weight: normal;
+    font-weight: 400;
+    font-variation-settings: "wght" $fontWeightNormal;
   }
 
   h2 {
     margin: 0;
-    color: $accentColor;
+    color: $mainColor;
     text-shadow: 1px 1px 0 $shadowColorAlt,
                  2px 2px 0 $shadowColorAlt,
                  3px 3px 0 $shadowColorAlt,
                  4px 4px 0 $shadowColorAlt;
 
     em {
-      color: $mainColor;
+      @include bolden;
+
+      color: $headingColor;
       text-shadow: 1px 1px 0 $shadowColor,
                    2px 2px 0 $shadowColor,
                    3px 3px 0 $shadowColor,
                    4px 4px 0 $shadowColor;
       font-style: normal;
-      font-weight: inherit;
     }
 
     &.big {
@@ -92,18 +96,18 @@ body {
   }
 
   h1,
-  .h1,
-  h3,
-  .h3 {
+  h3 {
     text-shadow: 1px 1px 0 $shadowColor,
                  2px 2px 0 $shadowColor,
                  3px 3px 0 $shadowColor,
                  4px 4px 0 $shadowColor;
 
     em {
+      @include bolden;
+
       font-style: normal;
       font-weight: bold;
-      color: $accentColor;
+      color: $mainColor;
       text-shadow: 1px 1px 0 $shadowColorAlt,
                    2px 2px 0 $shadowColorAlt,
                    3px 3px 0 $shadowColorAlt,
@@ -112,13 +116,15 @@ body {
   }
 
   h3 {
+    font-weight: bold;
+    font-variation-settings: "wght" $fontWeightSemibold;
+
     &.big {
       font-size: $heading2Size;
     }
   }
 
-  h1, h2, h3,
-  .h1, .h2, .h3 {
+  h1, h2, h3 {
     letter-spacing: 0.03125em;
   }
 
@@ -126,24 +132,42 @@ body {
     font-size: $heading3Size;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    & + p,
+    & + ul,
+    & + pre {
+      margin-top: 1em;
+    }
+  }
+
   p,
   li {
     max-width: 18em;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 0 .25em black;
     text-align: left;
 
     em {
       font-weight: bold;
+      font-variation-settings: "wght" $fontWeightBold;
       font-style: normal;
       color: $accentColor;
     }
   }
 
+  * {
+    transition: font-variation-settings .2s ease-in-out;
+  }
+
   .big-p {
     font-size: $heading1Size;
     font-weight: bold;
+    font-variation-settings: "wght" $fontWeightBold;
     text-transform: uppercase;
     text-align: center;
   }
@@ -156,6 +180,27 @@ body {
     > * {
       background-color: $shadowColor;
     }
+  }
+
+  code {
+    font-family: $codeFont;
+    color: $codeColor;
+    font-weight: lightest;
+    font-variation-settings: "wght" $fontWeightLight;
+
+    &::before,
+    &::after {
+      content: '`';
+    }
+  }
+
+  h1 code,
+  h2 code,
+  h3 code,
+  h4 code {
+    color: inherit;
+    font-weight: bold;
+    font-variation-settings: "wght" $fontWeightBold;
   }
 
   pre {
@@ -171,6 +216,11 @@ body {
 
     code {
       max-height: 100%;
+
+      &::before,
+      &::after {
+        content: '';
+      }
     }
   }
 
@@ -245,70 +295,26 @@ body {
     }
   }
 
-  a.pen {
-    height: 2.618rem;
-    width: 2.618rem;
-    box-sizing: border-box;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 0;
-    border-radius: 1rem;
-    background-color: $linkColor;
-    background-image: url("/images/codepen.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 1.618rem;
-
-    &:hover,
-    &:active,
-    &:focus {
-      border-color: $linkColorHover;
-    }
-  }
-
   .step {
     height: 0;
     width: 0;
     float: left;
   }
 
-  .timeline {
-    margin: 0 auto;
-    padding: 0;
-    width: 16em;
-    display: grid;
-    grid-template-columns: repeat(7, 16em);
-    grid-template-rows: 9em;
-    column-gap: calc(50vw - #{16em / 2});
-  }
-
-  .timeline__entry {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: transform .5s ease-out, opacity .25s;
-    box-shadow: inset 0 0 1em black;
-  }
-
-  @for $i from 0 through 10 {
-    .step[data-fragment-index="#{$i}"].current-fragment ~ .timeline .timeline__entry {
-      transform: translateX(calc((-100% - 50vw + #{16em / 2}) * #{$i}));
-    }
-    .step[data-fragment-index="#{$i}"].current-fragment ~ .timeline .timeline__entry:nth-child(#{$i + 1}) {
-      opacity: 1;
-    }
-  }
-
   .v-tilt {
+    margin: -1em 0;
     transform: translate(0, var(--translateY, 25%)) rotate(-12.5deg) scale(var(--scale, 1));
     transform-origin: center;
+    border: 1em solid rgba($linkColor, .6);
+    border-width: 1em 0;
   }
 
   .v-tilt--large {
     --scale: 1.75;
+    --translateY: 55%;
+  }
+
+  h3.v-tilt--large {
     --translateY: 66%;
   }
 
@@ -316,7 +322,7 @@ body {
     position: relative;
     opacity: 0;
     transform: translate(0, 0) scale(0);
-    transition: transform .5s cubic-bezier(1,.5,.25,2), opacity .3s linear !important;
+    transition: transform .5s cubic-bezier(1,.5,.25,1.5), opacity .3s linear !important;
 
     &.visible {
       opacity: 1;
@@ -330,6 +336,14 @@ body {
       z-index: 2;
     }
   }
+
+  .bg-light {
+    background: rgba($mainColor, .7);
+    backdrop-filter: blur(5px);
+  }
+
+  @import 'timeline';
+  @import 'fr-demo';
 }
 
 #colophon {
@@ -344,47 +358,6 @@ body {
   letter-spacing: .0625em;
   z-index: 1;
 }
-
-code {
-  font-family: $codeFont !important;
-  color: $codeColor;
-
-  :not(pre) > & {
-    &::before,
-    &::after {
-      content: '`';
-    }
-  }
-
-  h1 &,
-  h2 &,
-  h3 & {
-    color: inherit;
-  }
-}
-
-[contenteditable] {
-  &:focus {
-    outline: none;
-  }
-}
-
-style[contenteditable] {
-  display: block;
-  font-family: $codeFont !important;
-  font-size: .7em;
-  white-space: pre;
-  text-align: left;
-  border: 2px solid $linkColor;
-  padding: 1ch;
-  margin: 1em auto;
-  color: $accentColor;
-
-  &:focus {
-    box-shadow: 0 0 0 2px $linkColor;
-  }
-}
-
 
 // Theme template ------------------------------
 @import "css/theme/template/theme";

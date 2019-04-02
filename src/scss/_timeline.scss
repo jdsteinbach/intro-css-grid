@@ -1,0 +1,68 @@
+$timeline-width: 1024px;
+
+.timeline {
+  margin: 0 auto;
+  padding: 0;
+  width: $timeline-width;
+  display: grid;
+  grid-template-columns: repeat(7, $timeline-width);
+  grid-template-rows: $timeline-width * 9 / 16;
+  column-gap: calc(50vw - #{$timeline-width / 2});
+}
+
+.timeline__entry {
+  margin: 0;
+  width: $timeline-width;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: stretch;
+  color: $mainColor;
+  background-color: $shadowColor;
+  opacity: 0;
+  transition: transform .5s ease-out, opacity .25s;
+
+  &:first-child {
+    opacity: 1;
+  }
+}
+
+.timeline__title {
+  padding: 0.5rem 1rem;
+  flex: 0 0 100%;
+  font-size: $heading3Size;
+  font-weight: bold;
+  font-variation-settings: "wght" $fontWeightBold;
+  color: $shadowColorAlt;
+  background-color: $mainColor;
+}
+
+.timeline__subtitle {
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+  font-variation-settings: "wght" $fontWeightSemibold;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+}
+
+.timeline__pros,
+.timeline__cons {
+  padding: 0.5rem 1rem;
+  flex: 0 0 50%;
+}
+
+.timeline__point {
+  margin-top: 0.5rem;
+  font-variation-settings: "wght" $fontWeightLight;
+}
+
+@for $i from 0 through 10 {
+  .step[data-fragment-index="#{$i}"].current-fragment ~ .timeline .timeline__entry {
+    transform: translateX(calc((-100% - 50vw + #{$timeline-width / 2}) * #{$i + 1}));
+  }
+  .step[data-fragment-index="#{$i}"].current-fragment ~ .timeline .timeline__entry:nth-child(#{$i + 2}) {
+    opacity: 1;
+  }
+}

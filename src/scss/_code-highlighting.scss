@@ -18,36 +18,36 @@ offwhite: #EBECF0
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #171920; /* ✅ */
-  color: #EBECF0; /* ✅ */
+  background: $backgroundColorAlt;
+  color: rgba($mainColor, .6);
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-tag {
-  color: #eee6a1; /* ✅ */
+  color: mix($shadowColorAlt, $mainColor, 30%);
 }
 
 .hljs-template-tag {
-  color: #EBECF0; /* ✅ */
+  color: mix($shadowColor, $mainColor, 30%);
 }
 
 .hljs-number {
-  color: #b5bd9c; /* ✅ */
+  color: mix($shadowColorAlt, $mainColor, 20%);
 }
 
 .hljs-variable,
 .hljs-template-variable,
 .hljs-attribute {
-  color: #e6da76; /* ✅ */
+  color: #afc1d3;
 }
 
 .hljs-literal {
-  color: #8b84bb; /* ✅ */
+  color: mix($shadowColor, $mainColor, 20%);
 }
 
 .hljs-subst {
-  color: #99a1b7; /* ✅ */
+  color: mix($shadowColorAlt, $mainColor, 20%);
 }
 
 .hljs-title,
@@ -56,27 +56,27 @@ offwhite: #EBECF0
 .hljs-selector-class,
 .hljs-section,
 .hljs-type {
-  color: #d5d8e1; /* ✅ */
+  color: mix($shadowColor, $mainColor, 20%);
 }
 
 .hljs-symbol,
 .hljs-bullet,
 .hljs-link {
-  color: #99a1b7; /* ✅ */
+  color: mix($shadowColorAlt, $mainColor, 20%);
 }
 
 .hljs-deletion,
 .hljs-string,
 .hljs-built_in,
 .hljs-builtin-name {
-  color: #c9c5df; /* ✅ */
+  color: mix($shadowColorAlt, $mainColor, 12.5%);
 }
 
 .hljs-addition,
 .hljs-comment,
 .hljs-quote,
 .hljs-meta {
-  color: #9ea97e; /* ✅ */
+  color: rgba($mainColor, .4);
 }
 
 

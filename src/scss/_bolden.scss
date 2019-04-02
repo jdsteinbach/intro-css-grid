@@ -1,0 +1,15 @@
+$fontWeightNormal: 300;
+$fontWeightLight: 100;
+$fontWeightSemibold: 600;
+$fontWeightBold: 900;
+
+
+@mixin bolden {
+  animation: bolden 1s .5s ease-out forwards;
+}
+
+@keyframes bolden {
+  to {
+    font-variation-settings: "wght" $fontWeightBold;
+  }
+}
