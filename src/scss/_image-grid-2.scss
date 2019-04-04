@@ -1,0 +1,33 @@
+.image-grid-2 {
+  margin: 0 auto;
+  padding: 10px;
+  width: 600px;
+  height: 600px;
+  display: grid;
+  gap: 10px;
+  grid-template:
+    "i1 i1 i2 i3" 1fr
+    "i1 i1 i4 i3" 1fr
+    "i6 i7 i4 i5" 1fr
+    "i6 i8 i8 i9" 1fr/
+    1fr 1fr 1fr 1fr;
+  background-color: $mainColor;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    background-position: center;
+    background-size: cover;
+
+    @for $i from 1 through 41 {
+      &:nth-child(#{$i}) {
+        grid-area: i#{$i};
+        background-image:
+          linear-gradient(rgba(#000, .3), rgba(#000, .3)),
+          url("https://picsum.photos/400?image=#{$i+50}");
+      }
+    }
+  }
+}

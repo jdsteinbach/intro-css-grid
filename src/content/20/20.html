@@ -1,120 +1,118 @@
-<div>
-  <span class="step"></span>
-  <span class="step fragment"></span>
-  <span class="step fragment"></span>
-  <span class="step fragment"></span>
-  <span class="step fragment"></span>
-  <span class="step fragment"></span>
-  <span class="step fragment"></span>
+<p class="step"></p>
+<p class="step fragment"></p>
+<p class="step fragment"></p>
+<p class="step fragment"></p>
+<p class="step fragment"></p>
+<p class="step fragment"></p>
+<p class="step fragment"></p>
 
-  <ol class="timeline">
-    <li class="timeline__entry">
-      <div class="timeline__title">Tables (HTML)</div>
-      <div class="timeline__pros">
-        <div class="timeline__subtitle">Pros</div>
-        <ul>
-          <li class="timeline__point">It worked back then</li>
-        </ul>
-      </div>
-      <div class="timeline__cons">
-        <div class="timeline__subtitle">Cons</div>
-        <ul>
-          <li class="timeline__point">It&apos;s a <code>table</code></li>
-          <li class="timeline__point">Not responsive</li>
-          <li class="timeline__point">Edit = rewrite markup</li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline__entry">
-      <div class="timeline__title">Inline-Block</div>
-      <div class="timeline__pros">
-        <div class="timeline__subtitle">Pros</div>
-        <ul>
-          <li class="timeline__point">Not a <code>table</code></li>
-          <li class="timeline__point">Precise widths</li>
-        </ul>
-      </div>
-      <div class="timeline__cons">
-        <div class="timeline__subtitle">Cons</div>
-        <ul>
-          <li class="timeline__point">Each column needed CSS <code>width</code></li>
-          <li class="timeline__point">Complicated math</li>
-          <li class="timeline__point">White space created tiny gaps</li>
-          <li class="timeline__point">Hack: HTML changes or <code>font-size: 0</code></li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline__entry">
-      <div class="timeline__title">Float</div>
-      <div class="timeline__pros">
-        <div class="timeline__subtitle">Pros</div>
-        <ul>
-          <li class="timeline__point">Not a <code>table</code></li>
-          <li class="timeline__point">Precise widths</li>
-        </ul>
-      </div>
-      <div class="timeline__cons">
-        <div class="timeline__subtitle">Cons</div>
-        <ul>
-          <li class="timeline__point">Each column needed CSS <code>width</code></li>
-          <li class="timeline__point">Complicated math</li>
-          <li class="timeline__point">Parent height collapsed</li>
-          <li class="timeline__point">Hack: clearfixes</li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline__entry">
-      <div class="timeline__title">Tables (CSS)</div>
-      <div class="timeline__pros">
-        <div class="timeline__subtitle">Pros</div>
-        <ul>
-          <li class="timeline__point">Not an HTML <code>table</code></li>
-        </ul>
-      </div>
-      <div class="timeline__cons">
-        <div class="timeline__subtitle">Cons</div>
-        <ul>
-          <li class="timeline__point">Needs more complicated markup (row elements)</li>
-          <li class="timeline__point">Can’t mix fluid and fixed easily</li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline__entry">
-      <div class="timeline__title">CSS Columns</div>
-      <div class="timeline__pros">
-        <div class="timeline__subtitle">Pros</div>
-        <ul>
-          <li class="timeline__point">Not a <code>table</code></li>
-          <li class="timeline__point">Precise widths</li>
-          <li class="timeline__point">Supports gaps & dividers</li>
-        </ul>
-      </div>
-      <div class="timeline__cons">
-        <div class="timeline__subtitle">Cons</div>
-        <ul>
-          <li class="timeline__point">Inner content breaks across columns</li>
-          <li class="timeline__point">Browser bugginess </li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline__entry">
-      <div class="timeline__title">Flexbox</div>
-      <div class="timeline__pros">
-        <div class="timeline__subtitle">Pros</div>
-        <ul>
-          <li class="timeline__point">Not a <code>table</code></li>
-          <li class="timeline__point">Precise widths</li>
-          <li class="timeline__point">Flexible columns sizing</li>
-        </ul>
-      </div>
-      <div class="timeline__cons">
-        <div class="timeline__subtitle">Cons</div>
-        <ul>
-          <li class="timeline__point">Each column needed CSS <code>width</code> / <code>flex-basis</code></li>
-          <li class="timeline__point">No gaps</li>
-          <li class="timeline__point">Only 1-dimension (columns <i>or</i> rows)</li>
-        </ul>
-      </div>
-    </li>
-  </ol>
-</div>
+<ol class="timeline">
+  <li class="timeline__entry">
+    <div class="timeline__title">Tables (HTML)</div>
+    <div class="timeline__pros">
+      <div class="timeline__subtitle">Pros</div>
+      <ul>
+        <li class="timeline__point">It worked back then</li>
+      </ul>
+    </div>
+    <div class="timeline__cons">
+      <div class="timeline__subtitle">Cons</div>
+      <ul>
+        <li class="timeline__point">It&apos;s a <code>table</code></li>
+        <li class="timeline__point">Not responsive</li>
+        <li class="timeline__point">Edit = rewrite markup</li>
+      </ul>
+    </div>
+  </li>
+  <li class="timeline__entry">
+    <div class="timeline__title">Inline-Block</div>
+    <div class="timeline__pros">
+      <div class="timeline__subtitle">Pros</div>
+      <ul>
+        <li class="timeline__point">Not a <code>table</code></li>
+        <li class="timeline__point">Precise widths</li>
+      </ul>
+    </div>
+    <div class="timeline__cons">
+      <div class="timeline__subtitle">Cons</div>
+      <ul>
+        <li class="timeline__point">Each column needed CSS <code>width</code></li>
+        <li class="timeline__point">Complicated math</li>
+        <li class="timeline__point">White space created tiny gaps</li>
+        <li class="timeline__point">Hack: HTML changes or <code>font-size: 0</code></li>
+      </ul>
+    </div>
+  </li>
+  <li class="timeline__entry">
+    <div class="timeline__title">Float</div>
+    <div class="timeline__pros">
+      <div class="timeline__subtitle">Pros</div>
+      <ul>
+        <li class="timeline__point">Not a <code>table</code></li>
+        <li class="timeline__point">Precise widths</li>
+      </ul>
+    </div>
+    <div class="timeline__cons">
+      <div class="timeline__subtitle">Cons</div>
+      <ul>
+        <li class="timeline__point">Each column needed CSS <code>width</code></li>
+        <li class="timeline__point">Complicated math</li>
+        <li class="timeline__point">Parent height collapsed</li>
+        <li class="timeline__point">Hack: clearfixes</li>
+      </ul>
+    </div>
+  </li>
+  <li class="timeline__entry">
+    <div class="timeline__title">Tables (CSS)</div>
+    <div class="timeline__pros">
+      <div class="timeline__subtitle">Pros</div>
+      <ul>
+        <li class="timeline__point">Not an HTML <code>table</code></li>
+      </ul>
+    </div>
+    <div class="timeline__cons">
+      <div class="timeline__subtitle">Cons</div>
+      <ul>
+        <li class="timeline__point">Needs more complicated markup (row elements)</li>
+        <li class="timeline__point">Can’t mix fluid and fixed easily</li>
+      </ul>
+    </div>
+  </li>
+  <li class="timeline__entry">
+    <div class="timeline__title">CSS Columns</div>
+    <div class="timeline__pros">
+      <div class="timeline__subtitle">Pros</div>
+      <ul>
+        <li class="timeline__point">Not a <code>table</code></li>
+        <li class="timeline__point">Precise widths</li>
+        <li class="timeline__point">Supports gaps & dividers</li>
+      </ul>
+    </div>
+    <div class="timeline__cons">
+      <div class="timeline__subtitle">Cons</div>
+      <ul>
+        <li class="timeline__point">Inner content breaks across columns</li>
+        <li class="timeline__point">Browser bugginess </li>
+      </ul>
+    </div>
+  </li>
+  <li class="timeline__entry">
+    <div class="timeline__title">Flexbox</div>
+    <div class="timeline__pros">
+      <div class="timeline__subtitle">Pros</div>
+      <ul>
+        <li class="timeline__point">Not a <code>table</code></li>
+        <li class="timeline__point">Precise widths</li>
+        <li class="timeline__point">Flexible columns sizing</li>
+      </ul>
+    </div>
+    <div class="timeline__cons">
+      <div class="timeline__subtitle">Cons</div>
+      <ul>
+        <li class="timeline__point">Each column needed CSS <code>width</code> / <code>flex-basis</code></li>
+        <li class="timeline__point">No gaps</li>
+        <li class="timeline__point">Only 1-dimension (columns <i>or</i> rows)</li>
+      </ul>
+    </div>
+  </li>
+</ol>

@@ -1,0 +1,38 @@
+.image-grid {
+  margin: 0 auto;
+  padding: 10px;
+  width: 600px;
+  height: 600px;
+  display: grid;
+  gap: 10px;
+  grid-template:
+    "g35 g36 g37 g38 g39 g40 g41" 1fr
+    "g34 g13 g14 g15 g16 g17 g18" 1fr
+    "g33 g12  g1  g1  g1  g2 g19" 1fr
+    "g32 g11  g1  g1  g1  g3 g20" 1fr
+    "g31 g10  g1  g1  g1  g4 g21" 1fr
+    "g30  g9  g8  g7  g6  g5 g22" 1fr
+    "g29 g28 g27 g26 g25 g24 g23" 1fr /
+     1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: $mainColor;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-variation-settings: "wght" $fontWeightBold;
+    text-shadow: 0 1px 2px $backgroundColor;
+    background-position: center;
+    background-size: cover;
+
+    @for $i from 1 through 41 {
+      &:nth-child(#{$i}) {
+        grid-area: g#{$i};
+        background-image:
+          linear-gradient(rgba(#000, .3), rgba(#000, .3)),
+          url("https://picsum.photos/200/200?image=#{$i+10}");
+      }
+    }
+  }
+}

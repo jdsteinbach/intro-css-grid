@@ -26,6 +26,14 @@
     z-index: 0;
   }
 
+  &::before {
+    grid-area: before;
+  }
+
+  &::after {
+    grid-area: after;
+  }
+
   > * {
     position: relative;
     z-index: 1;

@@ -1,6 +1,7 @@
 import { dest, series, src, task, watch } from 'gulp'
 import yargs from 'yargs'
 import del from 'del'
+import fm from 'front-matter'
 import { readdirSync, readFileSync, statSync } from 'fs'
 import glob from 'glob'
 import { join, basename, extname } from 'path'
@@ -22,9 +23,9 @@ import sorter from 'css-declaration-sorter'
 let browserSync = require('browser-sync').create()
 let { reload } = browserSync
 let md = require('markdown-it')({
-  html: true,
-  typographer: true
-})
+    html: true,
+    typographer: true
+  })
 
 let { title } = require('./package.json')
 let { exec } = require('child_process')
@@ -198,26 +199,29 @@ const jsonToAttrs = json => {
   return attrs.join(' ')
 }
 
-const sectionize = (fileContents, isJson) => {
-  if (isJson) {
-    let contents = JSON.parse(fileContents)
-    const { content, ...data } = contents
-    return `<section ${jsonToAttrs(data)}>${content || ''}</section>`
-  } else {
-    return `<section>${fileContents}</section>`
-  }
+const sectionize = file => {
+  const { attributes, body, name } = file
+  // console.log('name', name)
+  // console.log('attributes', attributes)
+  // console.log('body', body)
+  return `<section ${jsonToAttrs(attributes)}>${body}</section>`
 }
 
 const filename = file => basename(file, extname(file))
 
 const fileContents = file => {
   const ext = extname(file)
-  let contents = readFileSync(file).toString()
+  const contents = readFileSync(file).toString()
+  let fileContents
 
-  if (ext === '.md') {
-    contents = md.render(contents)
+  const { attributes, body } = fm(contents)
+
+  fileContents = {
+    attributes: attributes,
+    body: md.render(body)
   }
-  return contents
+
+  return fileContents
 }
 
 const dirToContent = dir => {
@@ -226,13 +230,13 @@ const dirToContent = dir => {
     return parseInt(filename(a)) < parseInt(filename(b)) ? -1 : 1
   })
 
-  for (let x of contents) {
-    x = join(dir, x)
+  for (let c of contents) {
+    c = join(dir, c)
 
-    if (statSync(x).isFile()) {
-      content += sectionize(fileContents(x), extname(x) === '.json')
-    } else if (statSync(x).isDirectory()) {
-      content += sectionize(dirToContent(x))
+    if (statSync(c).isFile()) {
+      content += sectionize(fileContents(c))
+    } else if (statSync(c).isDirectory()) {
+      content += sectionize({body: dirToContent(c)})
     }
   }
 

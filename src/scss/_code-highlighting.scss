@@ -79,11 +79,40 @@ offwhite: #EBECF0
   color: rgba($mainColor, .4);
 }
 
-
 .hljs-emphasis {
   font-style: italic;
 }
 
 .hljs-strong {
   font-weight: bold;
+}
+
+.hljs mark {
+  position: relative;
+  font-weight: bold;
+  font-variation-settings: "wght" $fontWeightBold;
+  color: $shadowColor;
+  background-color: transparent;
+
+  * {
+    color: inherit;
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -0.25em;
+    bottom: 0;
+    left: -0.25rem;
+    z-index: 0;
+    background-color: $accentColor;
+  }
+
+  &.alt::before {
+    background-color: $linkColor;
+  }
 }

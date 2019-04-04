@@ -45,6 +45,10 @@ $timeline-width: 1024px;
   font-variation-settings: "wght" $fontWeightSemibold;
   text-transform: uppercase;
   border-bottom: 1px solid currentColor;
+
+  + ul {
+    margin-top: 0.5rem;
+  }
 }
 
 .timeline__pros,
@@ -54,7 +58,9 @@ $timeline-width: 1024px;
 }
 
 .timeline__point {
-  margin-top: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  display: list-item;
   font-variation-settings: "wght" $fontWeightLight;
 }
 

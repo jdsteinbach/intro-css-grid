@@ -1,8 +1,12 @@
-<div class="employee">
-  <div class="employee__photo">
+<span class="step flip-trigger fragment"></span>
+<span class="step flip-trigger fragment"></span>
+<span class="step flip-trigger fragment"></span>
+
+<div class="employee" id="flip-parent">
+  <div class="employee__photo" data-flip-key="photo">
     <img src="http://i.pravatar.cc/400?img=49" alt="">
   </div>
-  <header class="employee__header">
+  <header class="employee__header" data-flip-key="header" data-flip-no-scale>
     <div class="employee__title">Rita Matthews</div>
     <div class="employee__subtitle">District Manager</div>
     <div class="employee__contact">
@@ -10,8 +14,8 @@
       <span>(555) 555-6789</span>
     </div>
   </header>
-  <div class="employee__bio">Rita has been managing this district for 3 years. When she’s not working, she spends time on a bunch of cool hobbies.</div>
-  <div class="employee__awards">
+  <div class="employee__bio" data-flip-key="bio" data-flip-no-scale>Rita has been managing this district for 3 years. When she’s not working, she spends time on a bunch of cool hobbies.</div>
+  <div class="employee__awards" data-flip-key="awards" data-flip-no-scale>
     <div class="awards-title">Awards</div>
     <li class="award">Highest Revenue Increase</li>
     <li class="award">Most Exciting Screensaver</li>

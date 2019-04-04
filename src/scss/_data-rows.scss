@@ -1,0 +1,60 @@
+.data-rows {
+  max-height: 600px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-row {
+  padding: 1rem;
+  display: grid;
+  grid-template:
+    "title date" auto
+    "actions status" auto /
+    1fr max-content;
+  gap: .5rem;
+  background: $mainColor;
+  color: $backgroundColor;
+  text-align: left;
+
+  &:not(:first-child) {
+    border-top: 1px solid $shadowColor;
+  }
+}
+
+.data-row__title {
+  grid-area: title;
+  font-size: (1em / 1.5);
+  font-variation-settings: "wght" $fontWeightSemibold;
+}
+
+.data-row__date {
+  grid-area: date;
+  font-size: (1em / 1.5);
+  text-align: right;
+}
+
+.data-row__actions {
+  grid-area: actions;
+  font-size: (1em / 1.75);
+}
+
+.data-row__status {
+  padding: 0 1rem;
+  grid-area: status;
+  text-align: right;
+  font-size: (1em / 1.75);
+  font-variation-settings: "wght" $fontWeightSemibold;
+  text-transform: uppercase;
+  border-radius: .25rem;
+  background-color: $linkColor;
+  color: $mainColor;
+  justify-self: end;
+
+  &--draft {
+    background-color: $codeColor;
+  }
+
+  &--private {
+    background-color: $shadowColorAlt;
+  }
+}
