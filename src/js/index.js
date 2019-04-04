@@ -6,7 +6,7 @@ Reveal.initialize({
   progress: true,
   history: true,
   center: true,
-  width: 1024,
+  width: 960,
   height: 800,
   transition: 'convex'
 });
