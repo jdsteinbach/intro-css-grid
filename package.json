@@ -5,7 +5,10 @@
   "title": "Practical Introduction to CSS Grid",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp watch --dev",
+    "build": "gulp build",
+    "deploy": "push-dir --dir=./dist --branch=master --force"
   },
   "repository": {
     "type": "git",

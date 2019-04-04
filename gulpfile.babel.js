@@ -39,7 +39,7 @@ const PROD = !(yargs.argv.dev)
  * Set up file paths
  */
 const _srcDir = `./src`
-const _distDir = `./dist`
+const _distDir = `./docs`
 const _devDir = `./dev`
 const _buildDir = PROD ? _distDir : _devDir
 
@@ -199,13 +199,7 @@ const jsonToAttrs = json => {
   return attrs.join(' ')
 }
 
-const sectionize = file => {
-  const { attributes, body, name } = file
-  // console.log('name', name)
-  // console.log('attributes', attributes)
-  // console.log('body', body)
-  return `<section ${jsonToAttrs(attributes)}>${body}</section>`
-}
+const sectionize = file => `<section ${jsonToAttrs(file.attributes)}>${file.body}</section>`
 
 const filename = file => basename(file, extname(file))
 
@@ -253,6 +247,8 @@ task('content', () => {
     .pipe(replace(/{{slides}}/, content))
     .pipe(replace(/{{title}}/, title))
     .pipe(replace(/<li>/gi, '<li class="fragment">'))
+    .pipe(gulpif(PROD, replace(/style.css/, 'style.min.css')))
+    .pipe(gulpif(PROD, replace(/index.js/, 'index.min.js')))
     .pipe(dest(_buildDir))
     .pipe(reload({ stream: true }))
 })
