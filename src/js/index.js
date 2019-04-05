@@ -8,7 +8,7 @@ initialize({
   center: true,
   width: 1000,
   height: 800,
-  transition: 'convex'
+  transition: 'fade'
 });
 
 
