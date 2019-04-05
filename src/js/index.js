@@ -1,12 +1,5 @@
 import Reveal from 'reveal.js'
 import { initHighlightingOnLoad } from 'highlight.js'
-import Flipping from 'flipping/dist/flipping.web';
-
-const flip = new Flipping({
-  parent: document.getElementById('flip-parent')
-})
-
-flip.read()
 
 Reveal.initialize({
   controls: true,
@@ -18,15 +11,5 @@ Reveal.initialize({
   transition: 'convex'
 });
 
-
-Reveal.addEventListener('fragmentshown', e => {
-  if (e.fragment.classList.contains('flip-trigger')) {
-    flip.flip()
-
-    setTimeout(() => {
-      flip.read()
-    }, 2000)
-  }
-})
 
 initHighlightingOnLoad()
