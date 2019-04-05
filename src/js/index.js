@@ -1,7 +1,7 @@
-import Reveal from 'reveal.js'
+import { initialize } from 'reveal.js'
 import { initHighlightingOnLoad } from 'highlight.js'
 
-Reveal.initialize({
+initialize({
   controls: true,
   progress: true,
   history: true,

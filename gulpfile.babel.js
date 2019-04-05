@@ -167,7 +167,7 @@ task('styles', () => {
 
   const _postcssOpts = [
     sorter({ order: 'smacss' }),
-    autoprefixer({ grid: true })
+    autoprefixer()
   ]
 
   if (PROD) _postcssOpts.push(cssnano())
