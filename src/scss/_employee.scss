@@ -22,7 +22,7 @@
     "bio bio" auto
     "awards awards" 1fr /
     150px 1fr;
-  gap: 1rem 1rem;
+  gap: 1rem;
 }
 
 .step:nth-child(3).current-fragment ~ .employee,
@@ -34,7 +34,7 @@
     "photo" auto
     "header" 1fr /
      1fr;
-  gap: 1rem 1rem;
+  gap: 1rem;
 
   .employee__photo {
     max-width: 250px;
