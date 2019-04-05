@@ -1,4 +1,4 @@
-@font-face{src:url(/fonts/iAWriterQuattroV.ttf) format("truetype");font-family:Quattro VF;font-style:normal}@font-face{src:url(/fonts/iAWriterQuattroVi.ttf) format("truetype");font-family:Quattro VF;font-style:italic}@font-face{src:url(/fonts/iAWriterMonoV.ttf) format("truetype");font-family:Mono VF;font-style:normal}@font-face{src:url(/fonts/iAWriterMonoVi.ttf) format("truetype");font-family:Mono VF;font-style:italic}@-webkit-keyframes bolden{to{font-variation-settings:"wght" 900}}@keyframes bolden{to{font-variation-settings:"wght" 900}}
+@font-face{src:url(fonts/iAWriterQuattroV.ttf) format("truetype");font-family:Quattro VF;font-style:normal}@font-face{src:url(fonts/iAWriterQuattroVi.ttf) format("truetype");font-family:Quattro VF;font-style:italic}@font-face{src:url(fonts/iAWriterMonoV.ttf) format("truetype");font-family:Mono VF;font-style:normal}@font-face{src:url(fonts/iAWriterMonoVi.ttf) format("truetype");font-family:Mono VF;font-style:italic}@-webkit-keyframes bolden{to{font-variation-settings:"wght" 900}}@keyframes bolden{to{font-variation-settings:"wght" 900}}
 
 /*!
  * reveal.js
