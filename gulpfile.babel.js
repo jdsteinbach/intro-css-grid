@@ -141,7 +141,10 @@ task('scripts', () => {
             }
           }
         ]
-      }
+      },
+      performance: {
+        hints: false
+     }
     }))
     .pipe(gulpif(PROD, rename({ suffix: '.min' })))
     .pipe(dest(_buildDir))
