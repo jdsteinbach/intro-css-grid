@@ -259,6 +259,11 @@ body {
     border-bottom: .125em solid $linkColor;
   }
 
+  .t-bold {
+    font-weight: bold;
+    font-variation-settings: "wght" 900;
+  }
+
   .striped {
     padding: .125em;
     display: flex;
@@ -293,7 +298,7 @@ body {
   }
 
   .mb-1 {
-    margin-bottom: 1rem;
+    margin-bottom: $blockMargin;
   }
 
   .grid-properties {
@@ -361,6 +366,14 @@ body {
   .bg-light {
     background: rgba($mainColor, .7);
     backdrop-filter: blur(5px);
+  }
+
+  .logo--dockyard {
+    margin-left: 1ch;
+    max-width: 1em;
+    max-height: 1em;
+    display: inline-block;
+    vertical-align: middle;
   }
 
   @import 'timeline';

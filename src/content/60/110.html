@@ -1,11 +1,9 @@
 <pre><code class="language-css" data-no-escape>.image-grid {
-  display: grid;
   grid-template:
-    "i1 i1 i2 i3" 1fr
-    "i1 i1 i4 i5" 1fr
-    "i6 i7 i4 i5" 1fr
-    "i6 i8 i9 i9" 1fr/
-      1fr 1fr 1fr 1fr;
+    " <mark class="alt">i1  i1</mark>  i2  <mark>i3</mark>" 1fr
+    " <mark class="alt">i1  i1</mark>  <mark>i4</mark>  <mark>i3</mark>" 1fr
+    " <mark>i6</mark>  i7  <mark>i4</mark>  i5" 1fr
+    " <mark>i6</mark>  <mark class="alt">i8  i8</mark>  i9" 1fr /
+     1fr 1fr 1fr 1fr;
   gap: 10px;
-}
-</code></pre>
+}</code></pre>
