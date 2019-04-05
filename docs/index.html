@@ -400,9 +400,9 @@
 </section><section ><pre><code class="language-css">.row {
   display: grid;
   grid-template:
-    &quot;title date&quot; auto
+    &quot;title   date&quot;   auto
     &quot;actions status&quot; auto /
-    1fr max-content;
+     1fr     max-content;
   gap: .5rem;
 }
 </code></pre>
@@ -429,13 +429,13 @@
     <li class="award">Most Reflective Sunglasses</li>
   </div>
 </div>
-</section><section ><pre><code class="language-css">.employee {
+</section><section ><pre><code class="language-css" data-no-escape>.employee {
   display: grid;
   grid-template:
-    &quot;photo header&quot; auto
-    &quot;photo awards&quot; auto
-    &quot;bio awards&quot; 1fr /
-    30% 1fr;
+    "<mark>photo</mark> header" auto
+    "<mark>photo</mark> <mark class="alt">awards</mark>" auto
+    "bio   <mark class="alt">awards</mark>" 1fr /
+     30%   1fr;
   gap: 1rem 3rem;
 }
 </code></pre>
@@ -462,13 +462,13 @@
     <li class="award">Most Reflective Sunglasses</li>
   </div>
 </div>
-</section><section ><pre><code class="language-css">.employee {
+</section><section ><pre><code class="language-css" data-no-escape>.employee {
   display: grid;
   grid-template:
-    &quot;photo header&quot; auto
-    &quot;bio bio&quot; auto
-    &quot;awards awards&quot; 1fr /
-    150px 1fr;
+    "photo  header" auto
+    "<mark>bio    bio</mark>"    auto
+    "<mark class="alt">awards awards</mark>" 1fr /
+     150px  1fr;
     gap: 1rem;
 }
 </code></pre>
@@ -547,24 +547,12 @@
   <span>9</span>
 </div>
 </section><section ><pre><code class="language-css" data-no-escape>.image-grid {
-  display: grid;
   grid-template:
-    "i1 i1 i2 i3" 1fr
-    "i1 i1 i4 i5" 1fr
-    "i6 i7 i4 i5" 1fr
-    "i6 i8 i9 i9" 1fr/
-      1fr 1fr 1fr 1fr;
-  gap: 10px;
-}
-</code></pre>
-</section><section data-transition="none"><pre><code class="language-css" data-no-escape>.image-grid {
-  display: grid;
-  grid-template:
-    "<mark class="alt">i1 i1</mark> i2 i3" 1fr
-    "<mark class="alt">i1 i1</mark> <mark>i4</mark> <mark>i5</mark>" 1fr
-    "<mark>i6</mark> i7 <mark>i4</mark> <mark>i5</mark>" 1fr
-    "<mark>i6</mark> i8 <mark class="alt">i9 i9</mark>" 1fr/
-    1fr 1fr 1fr 1fr;
+    " <mark class="alt">i1  i1</mark>  i2  <mark>i3</mark>" 1fr
+    " <mark class="alt">i1  i1</mark>  <mark>i4</mark>  <mark>i3</mark>" 1fr
+    " <mark>i6</mark>  i7  <mark>i4</mark>  i5" 1fr
+    " <mark>i6</mark>  <mark class="alt">i8  i8</mark>  i9" 1fr /
+     1fr 1fr 1fr 1fr;
   gap: 10px;
 }</code></pre>
 </section><section ><div class="image-grid">
@@ -611,21 +599,20 @@
   <span>41</span>
 </div>
 </section><section ><pre><code class="language-css" data-no-escape>.image-grid {
-  display: grid;
   grid-template:
-    "g35 g36 g37 g38 g39 g40 g41" 1fr
-    "g34 g13 g14 g15 g16 g17 g18" 1fr
-    "g33 g12  <mark>g1  g1  g1</mark>  g2 g19" 1fr
-    "g32 g11  <mark>g1  g1  g1</mark>  g3 g20" 1fr
-    "g31 g10  <mark>g1  g1  g1</mark>  g4 g21" 1fr
-    "g30  g9  g8  g7  g6  g5 g22" 1fr
-    "g29 g28 g27 g26 g25 g24 g23" 1fr /
+    "i35 i36 i37 i38 i39 i40 i41" 1fr
+    "i34 i13 i14 i15 i16 i17 i18" 1fr
+    "i33 i12  <mark>i1  i1  i1</mark>  i2 i19" 1fr
+    "i32 i11  <mark>i1  i1  i1</mark>  i3 i20" 1fr
+    "i31 i10  <mark>i1  i1  i1</mark>  i4 i21" 1fr
+    "i30  i9  i8  i7  i6  i5 i22" 1fr
+    "i29 i28 i27 i26 i25 i24 i23" 1fr /
      1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
 </code></pre>
 </section></section><section ><section ><h2 class="big v-tilt v-tilt--large">
-  Tips, Tricks<br /><em>& Gotchas</em>
+  <em>Tips,</em><br />Tricks &<br /><em>Gotchas</em>
 </h2>
 </section><section ><h3>Named Grid Areas</h3>
 <p>One rectangle</p>
@@ -666,8 +653,8 @@ not its intrinsic aspect ratio</p>
   <em class="fragment d-block a-blast-in a-blast-in--big" data-autoslide="500">Y’all!</em>
   <span class="fragment d-block a-blast-in">👍 </span>
 </h2>
-</section><section ><h2 class="mb-1">James Steinbach</h2>
-<h3>Senior UX Developer<br /> at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a></h3>
+</section><section ><h2 class="mb-1 t-bold">James Steinbach</h2>
+<h3>Senior UX Developer<br /> at <a rel="noreferrer noopener nofollow" target="_blank" href="https://dockyard.com/blog/authors/james-steinbach">DockYard</a><svg viewBox="0 0 1023 1024" class="logo--dockyard" fill="#fff"><path d="M511.413 0c-282.422 0-511.413 228.991-511.413 512 0 282.422 228.991 511.413 511.413 511.413s511.413-228.991 511.413-511.413c0.587-283.009-228.404-512-511.413-512zM808.514 202.569c0 1.761-1.761 4.697-5.284 8.807-9.394 10.569-110.972 123.89-148.55 162.642 16.44 42.275 16.44 115.083 10.569 185.541-8.22 99.229-21.138 139.156-75.156 169.688s-201.982 34.642-275.963 16.44c-73.982-18.202-83.376-92.183-90.422-95.119-28.771-12.33-25.248-58.128-25.248-58.128 20.55-1.174 40.514 24.073 40.514 24.073 8.22-12.917 32.294-25.248 32.294-25.248 11.156 39.339-12.33 52.844-9.982 58.128 5.872 14.679 37.578 49.908 87.486 24.073 49.908-25.248 51.67-94.532 54.606-179.67s25.248-153.248 98.642-169.688c56.367-12.33 96.881 1.761 115.083 10.569 50.495-36.991 165.578-119.193 175.56-126.239 4.697-2.936 8.22-5.284 10.569-6.459h5.284c0 0 0 0 0 0.587v0z"></path><path d="M473.835 577.174c-16.44 22.899-21.138 44.037-31.706 69.284-8.807 19.963-23.486 29.358-34.642 45.798-9.394 14.092 20.55 18.789 28.771 19.376 21.725.587 45.798-10.569 58.716-27.596 17.615-24.073 19.376-46.972 31.706-72.22 6.459-13.505 26.422-39.339 27.596-51.67 2.936-23.486-56.367-16.44-80.44 17.028zM532.55 392.807c-11.743 4.11-18.202 16.44-14.092 28.183 3.523 11.743 16.44 18.202 27.596 14.092 11.743-4.11 18.202-16.44 14.092-28.183-3.523-11.156-16.44-17.615-27.596-14.092z"></path></svg></h3>
 <h2 class="mb-1"><code>jdsteinbach</code></h2>
 <h3><a rel="noreferrer noopener nofollow" target="_blank" href="https://twitter.com">Twitter</a> | <a rel="noreferrer noopener nofollow" target="_blank" href="https://github.com/jdsteinbach">Github</a> | <a href="https://jdsteinbach.com">Blog</a></h3>
 </section></section>
