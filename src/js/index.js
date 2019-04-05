@@ -1,5 +1,5 @@
 import Reveal from 'reveal.js'
-import hljs from 'highlight.js'
+import { initHighlightingOnLoad } from 'highlight.js'
 import Flipping from 'flipping/dist/flipping.web';
 
 const flip = new Flipping({
@@ -29,4 +29,4 @@ Reveal.addEventListener('fragmentshown', e => {
   }
 })
 
-hljs.initHighlightingOnLoad()
+initHighlightingOnLoad()
