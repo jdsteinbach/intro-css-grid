@@ -279,8 +279,8 @@
 </section><section ><h3 class="big v-tilt v-tilt--large">Grid<br />Container<br />Values</h3>
 </section><section ><h4><code>fr</code></h4>
 <p class="fragment">One &ldquo;<span class="t-emphasis">fr</span>action&rdquo; of the grid&rsquo;s <span class="t-emphasis">fr</span>ee space</p>
-<p class="fragment">Based on total number of <code>fr</code> in the row or column</p>
 <p class="fragment">Calculated after non-<code>fr</code> space is used</p>
+<p class="fragment">Based on total number of <code>fr</code> in the row or column</p>
 </section><section ><p><code>300px 1fr</code></p>
 <p class="fragment"><code>1fr 50em 25em 1fr</code></p>
 <p class="fragment"><code>1fr 2fr 3fr</code></p>
@@ -500,7 +500,7 @@
     &quot;photo&quot; auto
     &quot;header&quot; 1fr /
      1fr;
-  gap: 1rem 1rem;
+  gap: 1rem;
 }
 
 .employee__awards,
@@ -627,12 +627,17 @@
 </section></section><section ><section ><h2 class="big v-tilt v-tilt--large">
   Tips, Tricks<br /><em>& Gotchas</em>
 </h2>
-</section><section ><h3>Fixed Heights</h3>
-<p>Fixed heights =&gt; overflow</p>
-<p>Flexible row height values: <code>auto</code>, <code>min-content</code>, <code>max-content</code></p>
 </section><section ><h3>Named Grid Areas</h3>
 <p>One rectangle</p>
 <p>Adjacent cells</p>
+<p>Strings, not integers</p>
+</section><section ><h3>Image Sizes</h3>
+<p><code>img</code> assigned to a <code>grid-area</code> obeys the grid cell size,
+not its intrinsic aspect ratio</p>
+<p>Wrap images in a container element</p>
+</section><section ><h3>Fixed Heights</h3>
+<p>Fixed heights =&gt; overflow</p>
+<p>Flexible row height values: <code>auto</code>, <code>min-content</code>, <code>max-content</code></p>
 </section><section ><h3>Animating Grids</h3>
 <p>Some browsers animate</p>
 <p><code>grid-template-columns</code></p>
